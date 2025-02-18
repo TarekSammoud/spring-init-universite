@@ -3,7 +3,6 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 
 import lombok.*;
-import org.hibernate.mapping.List;
 
 @Entity
         @Getter
