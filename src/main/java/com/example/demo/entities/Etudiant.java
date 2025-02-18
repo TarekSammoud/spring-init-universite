@@ -2,7 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.mapping.List;
+import java.util.List;
 
 import java.util.Date;
 
@@ -21,8 +21,8 @@ public class Etudiant {
     private String ecole;
     private Date dateNaissance;
 
-    /*@ManyToMany
-    @JoinColumn(name = "idReservation", nullable = false)
-    private List<Reservation> reservations;*/
+    @ManyToMany(mappedBy = "etudiants")
+    private List<Reservation> reservations;
+
 
 }

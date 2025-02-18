@@ -2,7 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.mapping.List;
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,11 +14,10 @@ public class Foyer {
     private String nomFoyer;
     private long capaciteFoyer;
 
-   /* @OneToOne
-    @JoinColumn(name = "idUniversite", nullable = false)
-    private Universite associatedUniv ;*/
+    @OneToOne(mappedBy = "foyer")
+    private Universite universite;
 
-  /*  @OneToMany
-    @JoinColumn(name = "idBloc", nullable = false)
-    private List<Bloc> blocs;*/
+    @OneToMany(mappedBy = "foyer")
+    private List<Bloc> bloc ;
+
 }

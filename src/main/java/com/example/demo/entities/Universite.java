@@ -15,12 +15,12 @@ public class Universite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUniversite;
-
     private String nomUniversite;
     private String adresse;
 
-   /* @OneToOne
-    @JoinColumn(name = "idFoyer", nullable = false)
-    private Foyer foyer;*/
+    @OneToOne
+    private Foyer foyer;
+
+
 
 }

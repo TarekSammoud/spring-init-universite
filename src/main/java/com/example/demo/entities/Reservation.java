@@ -2,7 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.mapping.List;
+import java.util.List;
 
 import java.util.Date;
 
@@ -19,13 +19,11 @@ public class Reservation {
     private Date anneeUniversitaire ;
     private boolean estValide;
 
- /*   @ManyToOne
-    @JoinColumn(name = "idChambre", nullable = false)
-    private Chambre chambre;
+    @ManyToOne
+    private Bloc bloc;
 
     @ManyToMany
-    @JoinColumn(name = "idEtudiant", nullable = false)
-    private List<Etudiant> etudiants;*/
+    private List<Etudiant> etudiants;
 
 
 }

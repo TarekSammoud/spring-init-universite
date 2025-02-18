@@ -2,7 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.mapping.List;
+import java.util.List;
 
 import java.util.Date;
 
@@ -19,11 +19,12 @@ public class Chambre {
     @Enumerated(EnumType.STRING)
     private typeC TypeChambre;
 
-  /* @ManyToOne
-    @JoinColumn(name = "idBloc", nullable = false)
-    private Bloc bloc;*/
+    @ManyToOne
+    private Bloc bloc;
 
-   /* @OneToMany
-    @JoinColumn(name = "idReservation", nullable = false)
-    private List<Reservation> reservations;*/
+    @OneToMany
+    private List<Reservation> reservations;
+
+
+
 }
