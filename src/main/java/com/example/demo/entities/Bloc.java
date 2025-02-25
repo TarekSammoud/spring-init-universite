@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Bloc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

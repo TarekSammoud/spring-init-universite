@@ -7,6 +7,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Foyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -17,6 +18,8 @@ public class Etudiant {
     private Long idEtudiant;
     private String nomEt;
     private String prenomEt;
+
+    @NonNull
     private long cin ;
     private String ecole;
     private Date dateNaissance;
