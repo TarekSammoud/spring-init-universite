@@ -1,8 +1,12 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import lombok.*;
+
+import java.io.Serializable;
 
 @Entity
         @Getter
@@ -10,7 +14,7 @@ import lombok.*;
         @NoArgsConstructor
         @AllArgsConstructor
 
-public class Universite {
+public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUniversite;
@@ -18,8 +22,39 @@ public class Universite {
     private String adresse;
 
     @OneToOne
+    @JsonManagedReference
     private Foyer foyer;
 
 
+    public Long getIdUniversite() {
+        return idUniversite;
+    }
 
+    public void setIdUniversite(Long idUniversite) {
+        this.idUniversite = idUniversite;
+    }
+
+    public String getNomUniversite() {
+        return nomUniversite;
+    }
+
+    public void setNomUniversite(String nomUniversite) {
+        this.nomUniversite = nomUniversite;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public Foyer getFoyer() {
+        return foyer;
+    }
+
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
 }

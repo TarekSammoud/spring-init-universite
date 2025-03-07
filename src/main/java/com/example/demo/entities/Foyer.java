@@ -1,7 +1,11 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -9,7 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Foyer {
+public class Foyer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFoyer ;
@@ -17,9 +21,50 @@ public class Foyer {
     private long capaciteFoyer;
 
     @OneToOne(mappedBy = "foyer")
+    @JsonBackReference
     private Universite universite;
 
     @OneToMany(mappedBy = "foyer")
+    @JsonManagedReference
     private List<Bloc> bloc ;
 
+    public long getIdFoyer() {
+        return idFoyer;
+    }
+
+    public void setIdFoyer(long idFoyer) {
+        this.idFoyer = idFoyer;
+    }
+
+    public String getNomFoyer() {
+        return nomFoyer;
+    }
+
+    public void setNomFoyer(String nomFoyer) {
+        this.nomFoyer = nomFoyer;
+    }
+
+    public long getCapaciteFoyer() {
+        return capaciteFoyer;
+    }
+
+    public void setCapaciteFoyer(long capaciteFoyer) {
+        this.capaciteFoyer = capaciteFoyer;
+    }
+
+    public Universite getUniversite() {
+        return universite;
+    }
+
+    public void setUniversite(Universite universite) {
+        this.universite = universite;
+    }
+
+    public List<Bloc> getBloc() {
+        return bloc;
+    }
+
+    public void setBloc(List<Bloc> bloc) {
+        this.bloc = bloc;
+    }
 }
